@@ -2,7 +2,7 @@ import findIcon from "../images/find-icon.webp";
 import { useState } from "react";
 import { searchPokemon } from "../services/searchService";
 
-export default function SearchBar() {
+export default function SearchBar({ onPokemonFound }) {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null); //guardar el mensaje de error
 
@@ -17,7 +17,7 @@ export default function SearchBar() {
 
     try {
       const data = await searchPokemon(query);
-      console.log("Pokémon encontrado:", data);
+      onPokemonFound(data);
     } catch (err) {
       setError(err.message);
     }
