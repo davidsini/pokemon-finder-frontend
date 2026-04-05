@@ -3,7 +3,7 @@ export default function Card({ data }) {
 
   return (
     <article className="align-center flex min-h-100 w-full flex-col items-center justify-center gap-5">
-      <p className="font-bod text-center">Resultados de tu búsqueda:</p>
+      <p className="font-bod text-center">Resultado de tu búsqueda:</p>
       <div className="grid min-h-100 w-9/10 max-w-200 grid-cols-4 items-center gap-4 rounded-xl bg-[#f7f7f7] p-2 text-black shadow-lg *:rounded-2xl">
         <div className="col-span-4 bg-white md:col-span-2 md:row-span-4">
           <img
@@ -23,8 +23,8 @@ export default function Card({ data }) {
         <div className="col-span-2 bg-white p-3 md:col-span-1 md:row-span-1">
           <h3>Peso:</h3>
           <p>
-            {weight >= 100 ? weight * 100 : weight / 10}
-            {weight >= 100 ? " kg" : " g"}
+            {weight < 10 ? weight * 100 : weight / 10}
+            {weight < 10 ? " g" : " kg"}
           </p>
         </div>
         <div className="col-span-2 bg-white p-3 md:col-span-1 md:row-span-1">

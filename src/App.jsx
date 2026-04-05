@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchBar from "./components/Search-bar";
 import Card from "./components/Card";
+import Preloader from "./components/Preloader";
 
 import "./index.css";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [pokemonData, setPokemonData] = useState(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+  }, []);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
