@@ -1,6 +1,7 @@
 import findIcon from "../images/find-icon.webp";
 import { useState } from "react";
 import { searchPokemon } from "../services/pokemonApi";
+import pikachu from "../images/Pikachu.gif";
 
 export default function SearchBar({ onPokemonFound }) {
   const [query, setQuery] = useState("");
@@ -25,6 +26,7 @@ export default function SearchBar({ onPokemonFound }) {
 
   return (
     <div className="flex flex-col items-center justify-center md:w-full">
+      <img src={pikachu} className="w-50"></img>
       <form
         id="search-form"
         className="flex w-full flex-col content-center items-center justify-center gap-3"

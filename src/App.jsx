@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
-  }, []);
+  }, []); //simular que la página tarda en cargar sólo para mostrar el preloader
 
   if (isLoading) {
     return <Preloader />;
