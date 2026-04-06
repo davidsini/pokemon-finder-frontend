@@ -1,11 +1,14 @@
 import findIcon from "../images/find-icon.webp";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { searchPokemon } from "../services/pokemonApi";
 import pikachu from "../images/Pikachu.gif";
 
 export default function SearchBar({ onPokemonFound }) {
   const [query, setQuery] = useState("");
   const [error, setError] = useState(null); //guardar el mensaje de error
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +21,8 @@ export default function SearchBar({ onPokemonFound }) {
 
     try {
       const data = await searchPokemon(query);
-      onPokemonFound(data);
+      navigate("/resultados");
+      // onPokemonFound(data);
     } catch (err) {
       setError(err.message);
     }

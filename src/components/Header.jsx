@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import pokemonFinderLogo from "../images/pokemonFinderLogo.png";
 
 export default function Header() {
@@ -26,9 +27,12 @@ export default function Header() {
         <ul
           className={`${isOpen ? "flex" : "hidden"} absolute top-8 z-50 w-9/10 flex-col gap-1 md:opacity-0`}
         >
-          <li className="h-10 rounded-md bg-white p-2 text-black shadow-xl">
+          <Link
+            to="about"
+            className="h-10 rounded-md bg-white p-2 text-black shadow-xl"
+          >
             Acerca de
-          </li>
+          </Link>
           <li
             className="h-10 rounded-md bg-gray-200 p-2 text-black shadow-xl"
             onClick={() => setIsOpen(!isOpen)}
@@ -36,7 +40,9 @@ export default function Header() {
             Cerrar menú
           </li>
         </ul>
-        <h2 className="hidden md:block">Acerca de</h2>
+        <Link to="about" className="hidden md:block">
+          Acerca de
+        </Link>
       </nav>
 
       <h2 className="text-xl/6 font-medium md:text-xl/5">
