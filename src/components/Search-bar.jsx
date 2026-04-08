@@ -21,8 +21,8 @@ export default function SearchBar({ onPokemonFound }) {
 
     try {
       const data = await searchPokemon(query);
-      navigate("/resultados");
-      // onPokemonFound(data);
+      if (onPokemonFound) onPokemonFound(data);
+      navigate("/resultados", { state: { pokemonData: data } });
     } catch (err) {
       setError(err.message);
     }

@@ -28,10 +28,22 @@ export default function Header() {
           className={`${isOpen ? "flex" : "hidden"} absolute top-8 z-50 w-9/10 flex-col gap-1 md:opacity-0`}
         >
           <Link
-            to="about"
+            to="/"
+            className="h-10 rounded-md bg-white p-2 text-black shadow-xl"
+          >
+            Inicio
+          </Link>
+          <Link
+            to="/about"
             className="h-10 rounded-md bg-white p-2 text-black shadow-xl"
           >
             Acerca de
+          </Link>
+          <Link
+            to="/recent-searches"
+            className="h-10 rounded-md bg-white p-2 text-black shadow-xl"
+          >
+            Búsquedas recientes
           </Link>
           <li
             className="h-10 rounded-md bg-gray-200 p-2 text-black shadow-xl"
@@ -40,9 +52,17 @@ export default function Header() {
             Cerrar menú
           </li>
         </ul>
-        <Link to="about" className="hidden md:block">
-          Acerca de
-        </Link>
+        <ul className="flex gap-8">
+          <Link to="/" className="hidden md:block">
+            Inicio
+          </Link>
+          <Link to="/about" className="hidden md:block">
+            Acerca de
+          </Link>
+          <Link to="/recent-searches" className="hidden md:block">
+            Búsquedas recientes
+          </Link>
+        </ul>
       </nav>
 
       <h2 className="text-xl/6 font-medium md:text-xl/5">

@@ -1,17 +1,32 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Preloader from "../../components/Preloader";
-
-import { useState } from "react";
+import Card from "../../components/Card";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function PokemonDetails() {
-  const [pokemonData, setPokemonData] = useState(null);
+  const location = useLocation();
+  const pokemonData = location.state?.pokemonData;
+  const [recentSearches, setRecentSearches] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("pokemon_history");
+    if (saved) {
+      setRecentSearches(JSON.parse(saved));
+    }
+  }, pokemonData);
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <div className="flex grow flex-col items-center justify-center gap-10 py-20">
-        {<Card data={pokemonData} />}
+        {pokemonData ? (
+          <Card data={pokemonData} />
+        ) : (
+          <p>
+            No se encontró información del Pokémon. Por favor, intenta con otro.
+          </p>
+        )}
       </div>
       <Footer />
     </div>
