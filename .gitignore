@@ -11,13 +11,14 @@ node_modules
 dist
 dist-ssr
 *.local
+eslint.config.js
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
-*.suo
+*.suo   
 *.ntvs*
 *.njsproj
 *.sln
