@@ -1,7 +1,13 @@
+import { POKEMON_API_URL } from "./constants";
+
 export const searchPokemon = async (query) => {
-  const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}/`,
-  );
-  if (!response.ok) throw new Error("Pokémon no encontrado");
-  return await response.json();
+  try {
+    const response = await fetch(`${POKEMON_API_URL}${query.toLowerCase()}/`);
+    if (!response.ok) {
+      throw new Error("No se ha encontrado nada");
+    }
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
 };

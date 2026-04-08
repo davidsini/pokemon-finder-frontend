@@ -10,7 +10,7 @@ body {
 
 @font-face {
   font-family: "Pokemon Font";
-  src: url("./vendor/fonts/PocketMonk-15ze.woff2") format("woff2");
+  src: url("./fonts/PocketMonk-15ze.woff2") format("woff2");
   font-weight: thin;
   font-display: swap;
 }

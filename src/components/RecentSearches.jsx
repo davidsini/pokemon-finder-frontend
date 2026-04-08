@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { INITIAL_VISIBLE_POKEMONS } from "../utils/constants";
 
 export default function RecentSearches() {
   const navigate = useNavigate();
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_POKEMONS);
 
   const [searches] = useState(() => {
     const saved = localStorage.getItem("pokemon_history");
@@ -18,7 +19,7 @@ export default function RecentSearches() {
     );
 
   const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 3);
+    setVisibleCount((prevCount) => prevCount + INITIAL_VISIBLE_POKEMONS);
   };
 
   return (

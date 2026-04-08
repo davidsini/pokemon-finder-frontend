@@ -15,9 +15,7 @@ export default function PokemonDetails() {
         {pokemonData ? (
           <Card data={pokemonData} />
         ) : (
-          <p>
-            No se encontró información del Pokémon. Por favor, intenta con otro.
-          </p>
+          <p>No se ha encontrado nada.</p>
         )}
         <RecentSearches />
       </div>
