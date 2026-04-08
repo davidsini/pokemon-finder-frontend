@@ -39,8 +39,7 @@ export default function Home() {
       <Header />
       <main className="flex grow flex-col items-center justify-center gap-10 py-20">
         <SearchBar onPokemonFound={handlePokemonFound} />
-        {/* {pokemonData && <Card data={pokemonData} />} */}
-        <RecentSearches searches={recentSearches} />
+        <RecentSearches />
       </main>
       <Footer />
     </div>

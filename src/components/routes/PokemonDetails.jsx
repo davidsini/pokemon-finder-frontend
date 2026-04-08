@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import Card from "../../components/Card";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import RecentSearches from "../RecentSearches";
 
 export default function PokemonDetails() {
   const location = useLocation();
@@ -14,7 +15,7 @@ export default function PokemonDetails() {
     if (saved) {
       setRecentSearches(JSON.parse(saved));
     }
-  }, pokemonData);
+  }, [pokemonData]);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -27,6 +28,7 @@ export default function PokemonDetails() {
             No se encontró información del Pokémon. Por favor, intenta con otro.
           </p>
         )}
+        <RecentSearches searches={recentSearches} />
       </div>
       <Footer />
     </div>
