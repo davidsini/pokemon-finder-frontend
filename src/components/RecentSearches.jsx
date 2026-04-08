@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function RecentSearches() {
   const [searches, setSearches] = useState([]);
   const navigate = useNavigate();
+  const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
     const saved = localStorage.getItem("pokemon_history");
@@ -12,13 +13,22 @@ export default function RecentSearches() {
     }
   }, []);
 
-  if (searches.length === 0) return null; // No mostrar nada si no hay historial
+  if (searches.length === 0)
+    return (
+      <section className="mt-10 flex w-full flex-col items-center gap-4 text-black">
+        <p>No tienes historial de búsqueda. Prueba a buscar un Pokémon.</p>
+      </section>
+    );
+
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => prevCount + 3);
+  };
 
   return (
     <section className="mt-10 flex w-full max-w-50 flex-col items-center gap-4 md:max-w-200">
       <h3 className="text-lg font-bold text-[#1D1D1D]">Búsquedas recientes:</h3>
       <div className="flex flex-wrap justify-center gap-3">
-        {searches.map((pokemon) => (
+        {searches.slice(0, visibleCount).map((pokemon) => (
           <button
             key={pokemon.id}
             onClick={() =>
@@ -37,6 +47,14 @@ export default function RecentSearches() {
           </button>
         ))}
       </div>
+      {visibleCount < searches.length && (
+        <button
+          onClick={handleShowMore}
+          className="flex cursor-pointer items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-black shadow-sm transition-colors hover:bg-gray-100 hover:font-medium"
+        >
+          Ver más
+        </button>
+      )}
     </section>
   );
 }
