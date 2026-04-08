@@ -1,17 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function RecentSearches() {
-  const [searches, setSearches] = useState([]);
   const navigate = useNavigate();
   const [visibleCount, setVisibleCount] = useState(3);
 
-  useEffect(() => {
+  const [searches] = useState(() => {
     const saved = localStorage.getItem("pokemon_history");
-    if (saved) {
-      setSearches(JSON.parse(saved));
-    }
-  }, []);
+    return saved ? JSON.parse(saved) : [];
+  });
 
   if (searches.length === 0)
     return (

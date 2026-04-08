@@ -6,7 +6,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="relative flex w-screen flex-col content-center items-center justify-center gap-3 bg-red-800 p-6 text-center md:flex-row md:justify-between md:gap-10">
+    <header className="relative flex w-full flex-col content-center items-center justify-center gap-3 bg-red-800 p-6 text-center md:flex-row md:justify-between md:gap-10">
       <nav
         className="flex w-full flex-wrap items-center justify-center gap-6 md:w-5/7 md:justify-between"
         id="logo&navbarContainer"

@@ -2,36 +2,32 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SearchBar from "../../components/Search-bar";
 import Preloader from "../../components/Preloader";
-import Card from "../../components/Card";
 import RecentSearches from "../RecentSearches";
-
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [pokemonData, setPokemonData] = useState(null);
-  const [recentSearches, setRecentSearches] = useState([]);
 
   useEffect(() => {
-    const saved = localStorage.getItem("pokemon_history");
-    if (saved) {
-      setRecentSearches(JSON.parse(saved));
-    }
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
 
-    const timer = setTimeout(() => setIsLoading(false), 800);
-  }, []); //simular que la página tarda en cargar sólo para mostrar el preloader, las dos funciones anteriores se cargan sólo al montar el componente
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
     return <Preloader />;
   }
 
   const handlePokemonFound = (data) => {
-    setRecentSearches((prev) => {
-      const filtered = prev.filter((p) => p.id !== data.id); //evitar duplicados
-      const updated = [data, ...filtered].slice(0, 5); //extraer los primeros 5
-      localStorage.setItem("pokemon_history", JSON.stringify(updated)); //guardar en la memoria local
-      return updated;
-    });
+    const saved = localStorage.getItem("pokemon_history");
+    const prev = saved ? JSON.parse(saved) : [];
+
+    const filtered = prev.filter((p) => p.id !== data.id);
+    const updated = [data, ...filtered].slice(0, 10); //obtener los primeros 10
+
+    localStorage.setItem("pokemon_history", JSON.stringify(updated));
   };
 
   return (

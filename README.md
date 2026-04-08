@@ -1,16 +1,14 @@
-# React + Vite
+Acerca de
+Pokémon Finder es una herramienta diseñada para entrenadores que desean consultar datos rápidos y precisos sobre sus criaturas favoritas.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¿Cómo funciona?
+Utiliza la PokeAPI para obtener información en tiempo real sobre estadísticas, tipos y habilidades de cientos de Pokémon.
 
-Currently, two official plugins are available:
+Tecnologías utilizadas
+React.js
+Tailwind CSS
+React Router
+LocalStorage API
+Proyecto final del bootcamp de Desarrollo Web con enfoque en APIs REST, manejo de React y despliegue de sitios web.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+© Dēivid Sans 2026. Todos los derechos reservados.

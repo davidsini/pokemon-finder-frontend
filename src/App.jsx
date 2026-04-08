@@ -3,7 +3,6 @@ import Home from "./components/routes/Home";
 import PokemonDetails from "./components/routes/PokemonDetails";
 import About from "./components/routes/About";
 import RecentSearchesPage from "./components/routes/RecentSearchesPage";
-import { useState, useEffect } from "react";
 
 import "./index.css";
 
