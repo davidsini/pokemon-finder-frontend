@@ -7,11 +7,11 @@ export default function About() {
       <Header />
       <main className="flex grow flex-col items-center justify-center px-6 py-20">
         <section className="max-w-3xl rounded-2xl border-4 border-red-600 bg-white p-8 shadow-2xl">
-          <h1 className="mb-6 text-center text-4xl font-bold text-red-700">
-            Sobre Pokémon Finder
+          <h1 className="mb-6 text-center text-xl font-bold text-black md:text-3xl">
+            Acerca de
           </h1>
 
-          <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+          <div className="text-md space-y-6 leading-relaxed text-gray-700 md:text-lg">
             <p>
               <span className="font-bold text-red-600">Pokémon Finder</span> es
               una herramienta diseñada para entrenadores que desean consultar
@@ -23,7 +23,7 @@ export default function About() {
                 ¿Cómo funciona?
               </h2>
               <p>
-                Utilizas la{" "}
+                Utiliza la{" "}
                 <a
                   href="https://pokeapi.co/"
                   target="_blank"

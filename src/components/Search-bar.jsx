@@ -55,7 +55,7 @@ export default function SearchBar({ onPokemonFound }) {
           </p>
         )}
         <p className="text-center text-base/5 md:text-xl">
-          Puedes buscar entre cientos de Pokémon.
+          Puedes buscar entre cientos de tus Pokémon favoritos.
         </p>
       </form>
     </div>
