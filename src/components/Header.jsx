@@ -11,7 +11,11 @@ export default function Header() {
         className="flex w-full flex-wrap items-center justify-center gap-6 md:w-5/7 md:justify-between"
         id="logo&navbarContainer"
       >
-        <img src={pokemonFinderLogo} className="w-30"></img>
+        <img
+          src={pokemonFinderLogo}
+          className="w-30"
+          alt="logo de Pokémon"
+        ></img>
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
